@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جام جهانی ۲۰۲۶</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>جام جهانی ۲۰۲۶</h1>
+            <p class="subtitle">برنامه، جدول، نتایج زنده و شمارنده</p>
+        </div>
+    </div>
+    
+    <nav class="tab-nav" role="tablist" aria-label="Navigation">
+        <button class="tab-btn active" data-tab="schedule" role="tab" aria-selected="true" aria-controls="schedule-tab">
+            <span class="icon">&#128197;</span> برنامه
+        </button>
+        <button class="tab-btn" data-tab="standings" role="tab" aria-selected="false" aria-controls="standings-tab">
+            <span class="icon">&#128200;</span> جدول
+        </button>
+        <button class="tab-btn" data-tab="live" role="tab" aria-selected="false" aria-controls="live-tab">
+            <span class="icon">&#128308;</span> نتایج زنده
+        </button>
+        <button class="tab-btn" data-tab="countdown" role="tab" aria-selected="false" aria-controls="countdown-tab">
+            <span class="icon">&#9200;</span> بعدی
+        </button>
+    </nav>
+    
+    <main class="content">
+        <!-- Schedule Tab -->
+        <div id="schedule-tab" class="tab-content active" role="tabpanel">
+            <div id="schedule-loading" class="spinner-container">
+                <div class="spinner"></div>
+                <p class="spinner-text">در حال بارگذاری برنامه بازی‌ها...</p>
+            </div>
+            <div id="schedule-content"></div>
+            <div id="schedule-error" class="error-container" style="display: none;">
+                <span class="icon">&#128712;</span>
+                <h3>خطا در بارگذاری</h3>
+                <p>متأسفانه اطلاعات برنامه بازی‌ها بارگذاری نشد.</p>
+                <button class="retry-btn" onclick="loadSchedule()">تلاش مجدد</button>
+            </div>
+        </div>
+        
+        <!-- Standings Tab -->
+        <div id="standings-tab" class="tab-content" role="tabpanel">
+            <div id="standings-loading" class="spinner-container">
+                <div class="spinner"></div>
+                <p class="spinner-text">در حال بارگذاری جدول رده‌بندی...</p>
+            </div>
+            <div id="standings-content"></div>
+            <div id="standings-error" class="error-container" style="display: none;">
+                <span class="icon">&#128712;</span>
+                <h3>خطا در بارگذاری</h3>
+                <p>متأسفانه اطلاعات جدول رده‌بندی بارگذاری نشد.</p>
+                <button class="retry-btn" onclick="loadStandings()">تلاش مجدد</button>
+            </div>
+        </div>
+        
+        <!-- Live Scores Tab -->
+        <div id="live-tab" class="tab-content" role="tabpanel">
+            <div id="live-loading" class="spinner-container">
+                <div class="spinner"></div>
+                <p class="spinner-text">در حال بارگذاری نتایج زنده...</p>
+            </div>
+            <div id="live-content"></div>
+            <div id="live-error" class="error-container" style="display: none;">
+                <span class="icon">&#128712;</span>
+                <h3>خطا در بارگذاری</h3>
+                <p>متأسفانه اطلاعات نتایج زنده بارگذاری نشد.</p>
+                <button class="retry-btn" onclick="loadLiveScores()">تلاش مجدد</button>
+            </div>
+            <div id="live-next-matches" style="display: none;">
+                <h3 style="text-align: center; margin: 20px 0; color: var(--text-secondary);">بازی‌های امروز</h3>
+                <div id="live-next-content"></div>
+            </div>
+        </div>
+        
+        <!-- Countdown Tab -->
+        <div id="countdown-tab" class="tab-content" role="tabpanel">
+            <div id="countdown-loading" class="spinner-container">
+                <div class="spinner"></div>
+                <p class="spinner-text">در حال بارگذاری اطلاعات بازی بعدی...</p>
+            </div>
+            <div id="countdown-content"></div>
+            <div id="countdown-error" class="error-container" style="display: none;">
+                <span class="icon">&#128712;</span>
+                <h3>خطا در بارگذاری</h3>
+                <p>متأسفانه اطلاعات بازی بعدی بارگذاری نشد.</p>
+                <button class="retry-btn" onclick="loadNextMatch()">تلاش مجدد</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
